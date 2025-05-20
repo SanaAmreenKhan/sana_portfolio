@@ -3,186 +3,309 @@ import {
   Button,
   Grid,
   Typography,
-  Avatar,
   Chip,
   Stack,
+  Card,
+  CardMedia,
+  CardContent,
+  Snackbar,
+  IconButton,
 } from "@mui/material";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import EmailIcon from "@mui/icons-material/Email";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import BadgeIcon from "@mui/icons-material/Badge";
-import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
-import WorkIcon from "@mui/icons-material/Work";
-import CodeIcon from "@mui/icons-material/Code";
-import StorageIcon from "@mui/icons-material/Storage";
-import DnsIcon from "@mui/icons-material/Dns";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
-import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
-import { Link } from "react-router-dom";
+import {
+  LocationOn,
+  Work,
+  Email,
+  LinkedIn,
+  Badge,
+  AssignmentInd,
+  Close,
+  DownloadForOffline,
+} from "@mui/icons-material";
+import { useState } from "react";
+
+const featuredProjects = [
+  {
+    title: "Project Lightning (3D Visualization Tool)",
+    techStack: "React.js, Three.js, Recoil, Material UI",
+    description:
+      "Built a responsive and interactive 3D visualization interface for internal structural design workflows. Improved performance and user experience through dynamic data rendering and custom views.",
+    image: "/placeholder-lightning.jpeg",
+    companyNote: "Built during my role at Kanaka Software Consulting Pvt. Ltd.",
+  },
+  {
+    title: "Emulation Lab (Web-Based Simulation UI)",
+    techStack: "React.js, Recoil, Material UI, Azure DevOps",
+    description:
+      "Developed a modular UI for simulating engineering scenarios, integrated with REST APIs and chatbot interface with websockets integration. Reduced support queries by 30% through intuitive user guidance.",
+    image: "/placeholder-emulation.jpg",
+    companyNote: "Built during my role at Kanaka Software Consulting Pvt. Ltd.",
+  },
+];
 
 const PortfolioHome = () => {
+  const [open, setOpen] = useState(false);
+  const [copiedText, setCopiedText] = useState("");
+
+  const handleCopy = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedText(text);
+      setOpen(true);
+    } catch (error) {
+      console.error("Copy failed:", error);
+    }
+  };
+  const handleClose = () => setOpen(false);
   return (
-    <Grid
-      container
-      direction="column"
-      spacing={4}
-      sx={{ p: 4 }}
-      bgcolor="primary.main" 
-          color="background.default"
+    <Box
+      sx={{ background: "linear-gradient(135deg, #0a192f 0%, #112240 100%)" }}
     >
-      {/* Hero Section */}
-      <Grid>
-        <Typography
-          variant="h2"
-          fontWeight="bold"
-          gutterBottom
-          color="background.default"
-        >
-          Sana Amreen Khan
-        </Typography>
-        <Typography variant="h5" color="secondary.main" gutterBottom>
-          Full Stack Developer | React.js & Node.js Specialist
-        </Typography>
-        <Typography color="text.secondary" variant="subtitle1" sx={{ mb: 2 }}>
-          Creating intuitive UIs and scalable web apps using MERN stack.
-        </Typography>
-        <Stack direction="row" spacing={2}>
-          <Button
-            sx={{ backgroundColor: "secondary.main" }}
-            variant="outlined"
-            size="large" startIcon={<DownloadForOfflineIcon/>}
-             href="/Sana FullStack Developer-2025.pdf"
-  download="Sana-Amreen-Resume.pdf"
+      {/* Hero Section - Full Viewport Height */}
+      <Box
+        sx={{
+          minHeight: "80vh",
+          display: "flex",
+          alignItems: "center",
+          px: { xs: 4, md: 8 },
+          pt: { xs: 8, md: 0 },
+        }}
+      >
+        <Box sx={{ maxWidth: "800px" }}>
+          <Typography variant="subtitle1" sx={{ color: "#64ffda", mb: 2 }}>
+            Hi, I'm
+          </Typography>
+          <Typography
+            variant="h1"
+            sx={{
+              mb: 3,
+              background: "linear-gradient(90deg, #ccd6f6 0%, #64ffda 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
           >
-            Resume
-          </Button>
-          <Button
-            sx={{ backgroundColor: "background.default" }}
-            variant="outlined"
-            size="large"
-            href="/contact"
+            Sana Amreen Khan
+          </Typography>
+          <Typography variant="h4" sx={{ color: "#8892b0", mb: 4 }}>
+            Full Stack Developer specializing in MERN stack applications
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{ color: "#8892b0", mb: 5, maxWidth: "600px" }}
           >
-            Hire Me
-          </Button>
-          <Button
-            sx={{ backgroundColor: "background.default" }}
-            variant="text"
-            size="large" 
-            href="/portfolio"
-          >
-            See Projects
-          </Button>
-        </Stack>
-      </Grid>
+            I build scalable web applications with measurable performance
+            improvements. 4.4+ years experience delivering 40-60% efficiency
+            gains through optimized code.
+          </Typography>
+          <Stack direction="row" spacing={2}>
+            <Button
+              variant="contained"
+              href="/Sana FullStack Developer-2025.pdf"
+              download="Sana-Amreen-Resume.pdf"
+              startIcon={<DownloadForOffline />}
+              sx={{
+                background: "linear-gradient(90deg, #64ffda 0%, #4fd1c5 100%)",
+                color: "#0a192f",
+                "&:hover": {
+                  transform: "translateY(-2px)",
+                  boxShadow: "0 4px 12px rgba(100, 255, 218, 0.3)",
+                },
+              }}
+            >
+              Download Resume
+            </Button>
+            <Button
+              variant="outlined"
+              href="/contact"
+              sx={{
+                borderColor: "#64ffda",
+                color: "#64ffda",
+                "&:hover": {
+                  backgroundColor: "rgba(100, 255, 218, 0.1)",
+                },
+              }}
+            >
+              Contact Me
+            </Button>
+          </Stack>
+        </Box>
+      </Box>
 
-      {/* Short Introduction */}
-      <Grid>
-        <Typography variant="body1">
-          I’m an experienced software developer with 4.4 years in building
-          dynamic front-end applications and expanding backend skills in Node.js
-          and MongoDB. Passionate about crafting full-stack solutions with clean
-          code and engaging interfaces.
+      {/* Highlights Section */}
+      <Box sx={{ px: { xs: 4, md: 8 }, py: 1 }}>
+        <Typography variant="h3" sx={{ color: "#ccd6f6", mb: 4 }}>
+          At a Glance
         </Typography>
-      </Grid>
 
-      {/* Highlights / At a Glance */}
-      <Grid>
-        <Stack direction="row"  flexWrap="wrap" gap={1}
-          >
-          <Chip icon={<LocationOnIcon />} label="Jeddah, Saudi Arabia" sx={{backgroundColor:
-          "secondary.main"}} />
-          <Chip icon={<WorkIcon />} label="4.4+ Years" sx={{backgroundColor:
-          "secondary.main"}} />
-          <Chip icon={<EmailIcon />} label="er.sanaamreenkhan@gmail.com" sx={{backgroundColor:
-          "secondary.main"}} />
-          <Link to={"https://linkedin.com/in/er-sana-khan"}><Chip icon={<LinkedInIcon />} label="linkedin.com/in/er-sana-khan" sx={{backgroundColor:
-          "secondary.main"}}  /></Link>
-          
-          <Chip icon={<BadgeIcon />} label="Iqama No: 2597845953" sx={{backgroundColor:
-          "secondary.main"}} />
-          <Chip icon={<AssignmentIndIcon />} label="Passport: T7585719" sx={{backgroundColor:
-          "secondary.main"}} />
-        </Stack>
-      </Grid>
-      <Grid>
-        <Typography variant="h6" gutterBottom>
-          Skills Snapshot
-        </Typography>
-        <Stack direction="row" gap={2} flexWrap="wrap">
-          <Chip icon={<CodeIcon />} label="React.js" sx={{backgroundColor:
-          "secondary.main"}}/>
-          <Chip icon={<CodeIcon />} label="Node.js" sx={{backgroundColor:
-          "secondary.main"}}/>
-          <Chip icon={<StorageIcon />} label="MongoDB" sx={{backgroundColor:
-          "secondary.main"}} />
-          <Chip icon={<DnsIcon />} label="Express.js" sx={{backgroundColor:
-          "secondary.main"}}/>
-          <Chip icon={<CodeIcon />} label="REST API" sx={{backgroundColor:
-          "secondary.main"}}/>
-          <Chip icon={<CodeIcon />} label="JWT" sx={{backgroundColor:
-          "secondary.main"}}/>
-          <Chip icon={<CodeIcon />} label="Mongoose" sx={{backgroundColor:
-          "secondary.main"}}/>
-          <Chip icon={<CodeIcon />} label="Material UI" sx={{backgroundColor:
-          "secondary.main"}}/>
-          <Chip icon={<CodeIcon />} label="Recoil" sx={{backgroundColor:
-          "secondary.main"}}/>
-          <Chip icon={<CodeIcon />} label="Azure DevOps" sx={{backgroundColor:
-          "secondary.main"}}/>
-          <Chip icon={<CodeIcon />} label="Postman" sx={{backgroundColor:
-          "secondary.main"}}/>
-          <Chip icon={<GitHubIcon />} label="GitHub" sx={{backgroundColor:
-          "secondary.main"}}/>
-          <Chip icon={<InsertPhotoIcon />} label="Figma" sx={{backgroundColor:
-          "secondary.main"}}/>
-        </Stack>
-      </Grid>
-      <Grid>
-        <Typography variant="h6" gutterBottom>
-          Featured Projects
-        </Typography>
-        <Grid container spacing={2} color={"text.primary"}>
+        <Grid container spacing={4}>
           <Grid size={{ xs: 12, md: 6 }}>
-            <Box bgcolor="background.paper" p={2} borderRadius={2}>
-              <Typography variant="subtitle1" fontWeight="bold">
-                Project Lightening
-              </Typography>
-              <Typography variant="body2">
-                A responsive UI with real-time data rendering using React,
-                Recoil, Three.js. Boosted user engagement by 40%.
-              </Typography>
-              <Button size="small">View More</Button>
-            </Box>
+            <Stack direction="row" flexWrap="wrap" gap={1.5} sx={{ mb: 4 }}>
+              {[
+                { icon: <LocationOn />, label: "Jeddah, Saudi Arabia" },
+                { icon: <Work />, label: "4.4+ Years Experience" },
+                {
+                  icon: <Email />,
+                  label: "er.sanaamreenkhan@gmail.com",
+                  copy: "er.sanaamreenkhan@gmail.com",
+                },
+                {
+                  icon: <LinkedIn />,
+                  label: "linkedin.com/in/er-sana-khan",
+                  copy: "https://linkedin.com/in/er-sana-khan",
+                },
+                {
+                  icon: <Badge />,
+                  label: "Iqama: 2597845953",
+                  copy: "2597845953",
+                },
+                {
+                  icon: <AssignmentInd />,
+                  label: "Passport: T7585719",
+                  copy: "T7585719",
+                },
+              ].map((item, index) => (
+                <Chip
+                  key={index}
+                  icon={item.icon}
+                  label={item.label}
+                  onClick={item.copy ? () => handleCopy(item.copy) : null}
+                  clickable={!!item.copy}
+                  sx={{
+                    background: "rgba(100, 255, 218, 0.1)",
+                    color: "#64ffda",
+                    border: "1px solid rgba(100, 255, 218, 0.3)",
+                    "&:hover": {
+                      background: item.copy
+                        ? "rgba(100, 255, 218, 0.2)"
+                        : undefined,
+                    },
+                  }}
+                />
+              ))}
+            </Stack>
           </Grid>
+
           <Grid size={{ xs: 12, md: 6 }}>
-            <Box bgcolor="background.paper" p={2} borderRadius={2}>
-              <Typography variant="subtitle1" fontWeight="bold">
-                Emulation Lab
-              </Typography>
-              <Typography variant="body2">
-                Scalable UI with chatbot and performance optimizations using
-                Material UI, Recoil, Axios.
-              </Typography>
-              <Button size="small">View More</Button>
-            </Box>
+            <Typography variant="h5" sx={{ color: "#ccd6f6", mb: 2 }}>
+              Technical Expertise
+            </Typography>
+            <Stack direction="row" flexWrap="wrap" gap={1}>
+              {[
+                "React.js",
+                "Node.js",
+                "MongoDB",
+                "Express.js",
+                "TypeScript",
+                "Material UI",
+                "Three.js",
+                "REST APIs",
+                "JWT",
+                "Azure DevOps",
+                "Git",
+                "Figma",
+              ].map((skill) => (
+                <Chip
+                  key={skill}
+                  label={skill}
+                  sx={{
+                    background: "rgba(100, 255, 218, 0.1)",
+                    color: "#64ffda",
+                    border: "1px solid rgba(100, 255, 218, 0.3)",
+                  }}
+                />
+              ))}
+            </Stack>
           </Grid>
         </Grid>
-      </Grid>
-      <Grid>
-        <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-          <Button variant="contained" color="primary">
-            Hire Me
+      </Box>
+
+      {/* Featured Projects */}
+      <Box
+        sx={{
+          px: { xs: 4, md: 8 },
+          py: 8,
+          background: "rgba(15, 23, 42, 0.5)",
+        }}
+      >
+        <Typography variant="h3" sx={{ color: "#ccd6f6", mb: 6 }}>
+          Featured Projects
+        </Typography>
+
+        <Grid container spacing={4}>
+          {featuredProjects.map((project, index) => (
+            <Grid size={{ xs: 12, md: 6 }} key={index}>
+              <Card
+                sx={{
+                  height: "100%",
+                  background: "#112240",
+                  border: "1px solid rgba(100, 255, 218, 0.1)",
+                  transition: "transform 0.3s ease",
+                  "&:hover": {
+                    transform: "translateY(-8px)",
+                    boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)",
+                  },
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  height="200"
+                  image={project.image}
+                  alt={project.title}
+                  sx={{ objectFit: "cover" }}
+                />
+                <CardContent>
+                  <Typography variant="h5" sx={{ color: "#64ffda", mb: 1 }}>
+                    {project.title}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: "#8892b0", mb: 2 }}>
+                    {project.techStack}
+                  </Typography>
+                  <Typography variant="body1" sx={{ color: "#ccd6f6", mb: 2 }}>
+                    {project.description}
+                  </Typography>
+                  <Typography variant="caption" sx={{ color: "#64ffda" }}>
+                    {project.companyNote}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+
+        <Box sx={{ textAlign: "center", mt: 6 }}>
+          <Button
+            variant="outlined"
+            href="/portfolio"
+            sx={{
+              borderColor: "#64ffda",
+              color: "#64ffda",
+              px: 4,
+              "&:hover": {
+                background: "rgba(100, 255, 218, 0.1)",
+              },
+            }}
+          >
+            View All Projects
           </Button>
-          <Button variant="outlined" color="primary">
-            Download Resume
-          </Button>
-          <Button variant="text" color="secondary">
-            Let’s Connect
-          </Button>
-        </Stack>
-      </Grid>
-    </Grid>
+        </Box>
+      </Box>
+
+      <Snackbar
+        open={open}
+        autoHideDuration={2000}
+        onClose={handleClose}
+        message={`Copied: ${copiedText}`}
+        action={
+          <IconButton size="small" color="inherit" onClick={handleClose}>
+            <Close fontSize="small" />
+          </IconButton>
+        }
+        sx={{
+          "& .MuiSnackbarContent-root": {
+            border: "1px solid #64ffda",
+          },
+        }}
+      />
+    </Box>
   );
 };
 
