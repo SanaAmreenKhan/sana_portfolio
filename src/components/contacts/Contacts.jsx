@@ -1,6 +1,6 @@
-import { Box, Typography, Grid, Card } from "@mui/material";
+import { Box, Typography, Grid, Card, Link } from "@mui/material";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
-import { Link } from "react-router-dom";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const Contacts = () => {
   return (
@@ -75,10 +75,28 @@ const Contacts = () => {
                 <Typography variant="body1" color="#ccd6f6" paragraph>
                   <strong style={{ color: "#ccd6f6" }}>LinkedIn:</strong>{" "}
                   <Link
-                    to={"https://linkedin.com/in/er-sana-khan"}
-                    color="#ccd6f6"
+                    href="https://linkedin.com/in/er-sana-khan"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      color: "#64ffda",
+                      textDecoration: "none",
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        color: "#ccd6f6", // Lighter color on hover
+                        textDecoration: "underline",
+                        textUnderlineOffset: "4px",
+                        textDecorationColor: "#64ffda", // Underline with teal color
+                      },
+                    }}
+                    sx={{
+                      // Using sx prop for better MUI integration
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "4px",
+                    }}
                   >
-                    {" "}
+                    <LinkedInIcon sx={{ fontSize: "1.4rem" }} />
                     linkedin.com/in/er-sana-khan
                   </Link>
                 </Typography>

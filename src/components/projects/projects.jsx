@@ -8,7 +8,7 @@ const projects = [
       "Web-based simulation platform for engineering workflows with chatbot integration",
     technologies: ["React.js", "TypeScript", "Azure", "Three.js", "Node.js"],
     impact: "Reduced support queries by 30% and improved performance by 80%",
-    image: "/emulation-lab.jpg",
+    image: "/placeholder-emulation.jpg",
   },
   {
     title: "Project Lightening",
@@ -22,7 +22,7 @@ const projects = [
       "Express.js",
     ],
     impact: "Increased user engagement by 40% and reduced design errors by 50%",
-    image: "/project-lightening.jpg",
+    image: "/placeholder-lightning.jpeg",
   },
   {
     title: "Unique Blinds",
@@ -31,14 +31,7 @@ const projects = [
     technologies: ["React.js", "Redux", "Node.js", "MongoDB", "JWT"],
     impact:
       "Improved conversion rate by 25% through intuitive product visualization",
-    image: "/unique-blinds.jpg",
-  },
-  {
-    title: "Offilms",
-    description: "Movie streaming platform with cross-device compatibility",
-    technologies: ["React.js", "React Bootstrap", "REST APIs", "Jest", "AWS"],
-    impact: "Achieved 99.8% uptime and seamless playback across devices",
-    image: "/offilms.jpg",
+    image: "/e-commerce.webp",
   },
 ];
 

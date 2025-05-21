@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Grid, IconButton, useMediaQuery, useTheme } from "@mui/material";
 import Sidebar from "../sidebar/sidebar";
 import { Route, Routes } from "react-router-dom";
 import PortfolioHome from "./PortfolioHome";
@@ -7,8 +7,14 @@ import UserExperience from "../experience/UserExperience";
 import ElevatorPitch from "../elevator pitch/ElevatorPitch";
 import Contacts from "../contacts/Contacts";
 import Projects from "../projects/projects";
+import { useState } from "react";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const PortfolioMain = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   const renderComponent = [
     { title: "Home", to: "/", component: <PortfolioHome /> },
     { title: "About", to: "/about", component: <About /> },
@@ -23,10 +29,41 @@ const PortfolioMain = () => {
   ];
 
   return (
-    <Grid container direction="row" spacing={1} sx={{ minHeight: "100vh" }}>
-      <Grid size={{ xs: 8, md: 3 }}>
-        <Sidebar />
+    <Grid container direction="row" sx={{ minHeight: "100vh" }}>
+      {isMobile && (
+        <IconButton
+          sx={{
+            position: "fixed",
+            top: 10,
+            left: 10,
+            zIndex: 1200,
+            color: "#64ffda",
+            backgroundColor: "#112240",
+            "&:hover": {
+              backgroundColor: "rgba(100, 255, 218, 0.1)",
+            },
+          }}
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+        >
+          <MenuIcon />
+        </IconButton>
+      )}
+
+      <Grid
+        size={{ xs: false, md: 3 }}
+        sx={{
+          display: { xs: sidebarOpen ? "block" : "none", md: "block" },
+          position: { xs: "fixed", md: "static" },
+          zIndex: 1100,
+          height: "100vh",
+        }}
+      >
+        <Sidebar
+          open={!isMobile || sidebarOpen}
+          onClose={() => setSidebarOpen(false)}
+        />
       </Grid>
+
       <Grid
         size={{ xs: 12, md: 9 }}
         sx={{

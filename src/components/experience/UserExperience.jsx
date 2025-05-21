@@ -1,4 +1,12 @@
-import { Box, Typography, Card, Divider, Chip } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Card,
+  Divider,
+  Chip,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 import WorkIcon from "@mui/icons-material/Work";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
@@ -53,6 +61,9 @@ const experiences = [
 ];
 
 const UserExperience = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const cardStyle = {
     p: 3,
     background: "#112240",
@@ -85,7 +96,7 @@ const UserExperience = () => {
             position: "absolute",
             top: 0,
             bottom: 0,
-            left: "50%",
+            left: isMobile ? "4.5%" : "50%",
             transform: "translateX(-1px)", // center 2px line
             width: "2px",
             background: "linear-gradient(to bottom, #64ffda, transparent)",
@@ -104,7 +115,7 @@ const UserExperience = () => {
             }}
           >
             {/* LEFT SIDE */}
-            {index % 2 === 0 ? (
+            {index % 2 === 0 && !isMobile ? (
               <>
                 <Box sx={{ width: "48%", pr: 3 }}>
                   <Card sx={cardStyle}>
@@ -248,12 +259,12 @@ const UserExperience = () => {
               </>
             ) : (
               <>
-                <Box sx={{ width: "48%" }} />
+                <Box sx={{ width: isMobile ? "10%" : "48%" }} />
                 {/* DOT */}
                 <Box
                   sx={{
                     position: "absolute",
-                    left: "50%",
+                    left: isMobile ? "0%" : "50%",
                     top: "0px",
                     transform: "translateX(-50%)",
                     width: 18,
@@ -264,7 +275,7 @@ const UserExperience = () => {
                     zIndex: 1,
                   }}
                 />
-                <Box sx={{ width: "48%", pl: 3 }}>
+                <Box sx={{ width: isMobile ? "100%" : "48%", pl: 3 }}>
                   <Card sx={cardStyle}>
                     <Box
                       sx={{

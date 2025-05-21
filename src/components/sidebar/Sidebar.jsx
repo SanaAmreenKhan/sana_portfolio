@@ -4,31 +4,61 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import { NavLink, Outlet } from "react-router-dom";
-import { Avatar, Box, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Typography,
+  IconButton,
+  useMediaQuery,
+} from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+import {
+  Home as HomeIcon,
+  Info as AboutIcon,
+  Work as ExperienceIcon,
+  Mic as PitchIcon,
+  Folder as ProjectsIcon,
+  Email as ContactIcon,
+} from "@mui/icons-material";
 
 const renderComponent = [
-  { title: "Home", to: "/" },
-  { title: "About", to: "/about" },
-  { title: "Experience", to: "/experience" },
-  { title: "Elevator Pitch", to: "/elevator-pitch" },
-  { title: "Projects", to: "/projects" },
-  { title: "Contact", to: "/contact" },
+  { title: "Home", to: "/", icon: <HomeIcon /> },
+  { title: "About", to: "/about", icon: <AboutIcon /> },
+  { title: "Experience", to: "/experience", icon: <ExperienceIcon /> },
+  { title: "Elevator Pitch", to: "/elevator-pitch", icon: <PitchIcon /> },
+  { title: "Projects", to: "/projects", icon: <ProjectsIcon /> },
+  { title: "Contact", to: "/contact", icon: <ContactIcon /> },
 ];
 
-const Sidebar = ({ open }) => {
+const Sidebar = ({ open, onClose }) => {
+  const isMobile = useMediaQuery("(max-width:900px)");
+
   return (
     <Box
       sx={{
         height: "100vh",
         background: "linear-gradient(180deg, #0a192f 0%, #112240 100%)",
         borderRight: "1px solid rgba(100, 255, 218, 0.1)",
+        width: isMobile ? 250 : "100%",
       }}
     >
+      {isMobile && (
+        <IconButton
+          onClick={onClose}
+          sx={{
+            position: "absolute",
+            right: 8,
+            top: 8,
+            color: "#64ffda",
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+      )}
+
       <List>
-        <Box sx={{ p: 2, textAlign: "center" }}>
+        <Box sx={{ p: 2, textAlign: "center", mt: isMobile ? 4 : 0 }}>
           <Avatar
             src="/user.png"
             alt="Sana's Image"
@@ -39,12 +69,16 @@ const Sidebar = ({ open }) => {
               border: "2px solid #64ffda",
             }}
           />
-          <Typography variant="h6" sx={{ mt: 2, color: "#ccd6f6" }}>
-            Sana Amreen Khan
-          </Typography>
-          <Typography variant="body2" sx={{ color: "#64ffda" }}>
-            Full Stack Developer
-          </Typography>
+          {open && (
+            <>
+              <Typography variant="h6" sx={{ mt: 2, color: "#ccd6f6" }}>
+                Sana Amreen Khan
+              </Typography>
+              <Typography variant="body2" sx={{ color: "#64ffda" }}>
+                Full Stack Developer
+              </Typography>
+            </>
+          )}
         </Box>
         <Divider />
       </List>
@@ -65,7 +99,9 @@ const Sidebar = ({ open }) => {
                 "&:hover": {
                   background: "rgba(100, 255, 218, 0.05)",
                 },
+                justifyContent: open ? "initial" : "center",
               }}
+              onClick={isMobile ? onClose : undefined}
             >
               <ListItemIcon
                 sx={{
@@ -75,14 +111,9 @@ const Sidebar = ({ open }) => {
                   color: "inherit",
                 }}
               >
-                {index % 2 === 0 ? (
-                  <InboxIcon sx={{ color: "inherit" }} />
-                ) : (
-                  <MailIcon sx={{ color: "inherit" }} />
-                )}
-              </ListItemIcon>{" "}
-              &nbsp;
-              <ListItemText primary={item.title} />
+                {item.icon}
+              </ListItemIcon>
+              {open && <ListItemText primary={item.title} />}
             </ListItemButton>
             <Divider />
           </ListItem>
