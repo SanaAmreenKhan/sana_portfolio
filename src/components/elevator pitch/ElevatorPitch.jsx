@@ -1,12 +1,13 @@
-import { Box, Typography, Card, Button } from "@mui/material";
+import { Box, Typography, Card, Button, useTheme } from "@mui/material";
 import { PlayCircle } from "@mui/icons-material";
+import { GradientBox } from "../utils/MuiGradients";
 
 const ElevatorPitch = () => {
+  const theme = useTheme();
   return (
-    <Box
+    <GradientBox
       sx={{
         p: { xs: 3, md: 8 },
-        background: "linear-gradient(135deg, #0a192f 0%, #112240 100%)",
         minHeight: "100vh",
         display: "flex",
         alignItems: "center",
@@ -17,7 +18,8 @@ const ElevatorPitch = () => {
           variant="h2"
           sx={{
             mb: 4,
-            background: "linear-gradient(90deg, #ccd6f6 0%, #64ffda 100%)",
+            background:
+              theme.components.MuiTypography.styleOverrides.h1.background,
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
           }}
@@ -28,12 +30,10 @@ const ElevatorPitch = () => {
         <Card
           sx={{
             p: { xs: 3, md: 6 },
-            background: "#112240",
-            border: "1px solid rgba(100, 255, 218, 0.1)",
             textAlign: "left",
           }}
         >
-          <Typography variant="h4" sx={{ color: "#64ffda", mb: 3 }}>
+          <Typography variant="h4" sx={{ color: "secondary.main", mb: 3 }}>
             "I transform complex business requirements into scalable web
             applications with measurable performance improvements."
           </Typography>
@@ -76,7 +76,7 @@ const ElevatorPitch = () => {
               startIcon={<PlayCircle />}
               sx={{
                 background: "linear-gradient(90deg, #64ffda 0%, #4fd1c5 100%)",
-                color: "#0a192f",
+                color: "primary.main",
                 "&:hover": {
                   transform: "translateY(-3px)",
                   boxShadow: "0 6px 12px rgba(100, 255, 218, 0.3)",
@@ -90,20 +90,13 @@ const ElevatorPitch = () => {
               size="large"
               href="/Sana FullStack Developer-2025.pdf"
               download="Sana-Amreen-Resume.pdf"
-              sx={{
-                borderColor: "#64ffda",
-                color: "#64ffda",
-                "&:hover": {
-                  background: "rgba(100, 255, 218, 0.1)",
-                },
-              }}
             >
               Download Resume
             </Button>
           </Box>
         </Card>
       </Box>
-    </Box>
+    </GradientBox>
   );
 };
 

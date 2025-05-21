@@ -1,5 +1,14 @@
-import { Box, Typography, Grid, Card, CardMedia, Chip } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Grid,
+  Card,
+  CardMedia,
+  Chip,
+  useTheme,
+} from "@mui/material";
 import { Code, Storage } from "@mui/icons-material";
+import { GradientBox } from "../utils/MuiGradients";
 
 const projects = [
   {
@@ -36,11 +45,11 @@ const projects = [
 ];
 
 const Projects = () => {
+  const theme = useTheme();
   return (
-    <Box
+    <GradientBox
       sx={{
         p: { xs: 3, md: 8 },
-        background: "linear-gradient(135deg, #0a192f 0%, #112240 100%)",
         minHeight: "100vh",
       }}
     >
@@ -48,7 +57,8 @@ const Projects = () => {
         variant="h2"
         sx={{
           mb: 6,
-          background: "linear-gradient(90deg, #ccd6f6 0%, #64ffda 100%)",
+          background:
+            theme.components.MuiTypography.styleOverrides.h1.background,
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
         }}
@@ -64,13 +74,6 @@ const Projects = () => {
                 height: "100%",
                 display: "flex",
                 flexDirection: "column",
-                background: "#112240",
-                border: "1px solid rgba(100, 255, 218, 0.1)",
-                transition: "all 0.3s ease",
-                "&:hover": {
-                  transform: "translateY(-10px)",
-                  boxShadow: "0 15px 30px rgba(0, 0, 0, 0.3)",
-                },
               }}
             >
               <CardMedia
@@ -81,16 +84,19 @@ const Projects = () => {
                 sx={{ objectFit: "cover" }}
               />
               <Box sx={{ p: 3, flexGrow: 1 }}>
-                <Typography variant="h4" sx={{ color: "#64ffda", mb: 1 }}>
+                <Typography
+                  variant="h4"
+                  sx={{ color: "secondary.main", mb: 1 }}
+                >
                   {project.title}
                 </Typography>
-                <Typography variant="body1" sx={{ color: "#8892b0", mb: 2 }}>
+                <Typography variant="body1" sx={{ mb: 2 }}>
                   {project.description}
                 </Typography>
 
                 <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-                  <Storage sx={{ color: "#64ffda", mr: 1 }} />
-                  <Typography variant="body2" sx={{ color: "#ccd6f6" }}>
+                  <Storage sx={{ mr: 1 }} />
+                  <Typography variant="body2" sx={{ color: "text.primary" }}>
                     <strong>Impact:</strong> {project.impact}
                   </Typography>
                 </Box>
@@ -99,27 +105,18 @@ const Projects = () => {
                   <Typography
                     variant="subtitle2"
                     sx={{
-                      color: "#ccd6f6",
+                      color: "text.primary",
                       mb: 1,
                       display: "flex",
                       alignItems: "center",
                     }}
                   >
-                    <Code sx={{ color: "#64ffda", mr: 1 }} />
+                    <Code sx={{ mr: 1 }} />
                     Technologies Used:
                   </Typography>
                   <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
                     {project.technologies.map((tech) => (
-                      <Chip
-                        key={tech}
-                        label={tech}
-                        size="small"
-                        sx={{
-                          background: "rgba(100, 255, 218, 0.1)",
-                          color: "#64ffda",
-                          border: "1px solid rgba(100, 255, 218, 0.3)",
-                        }}
-                      />
+                      <Chip key={tech} label={tech} size="small" />
                     ))}
                   </Box>
                 </Box>
@@ -128,7 +125,7 @@ const Projects = () => {
           </Grid>
         ))}
       </Grid>
-    </Box>
+    </GradientBox>
   );
 };
 

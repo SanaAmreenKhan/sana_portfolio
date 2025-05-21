@@ -36,12 +36,12 @@ const Sidebar = ({ open, onClose }) => {
 
   return (
     <Box
-      sx={{
+      sx={(theme) => ({
         height: "100vh",
         background: "linear-gradient(180deg, #0a192f 0%, #112240 100%)",
-        borderRight: "1px solid rgba(100, 255, 218, 0.1)",
+        borderRight: theme.components.MuiCard.styleOverrides.root.border,
         width: isMobile ? 250 : "100%",
-      }}
+      })}
     >
       {isMobile && (
         <IconButton
@@ -50,7 +50,6 @@ const Sidebar = ({ open, onClose }) => {
             position: "absolute",
             right: 8,
             top: 8,
-            color: "#64ffda",
           }}
         >
           <CloseIcon />
@@ -71,10 +70,10 @@ const Sidebar = ({ open, onClose }) => {
           />
           {open && (
             <>
-              <Typography variant="h6" sx={{ mt: 2, color: "#ccd6f6" }}>
+              <Typography variant="h6" sx={{ mt: 2, color: "text.primary" }}>
                 Sana Amreen Khan
               </Typography>
-              <Typography variant="body2" sx={{ color: "#64ffda" }}>
+              <Typography variant="body2" sx={{ color: "secondary.main" }}>
                 Full Stack Developer
               </Typography>
             </>
@@ -91,24 +90,21 @@ const Sidebar = ({ open, onClose }) => {
               sx={{
                 minHeight: 48,
                 px: 2.5,
-                color: "#8892b0",
                 "&.active": {
-                  color: "#64ffda",
-                  background: "rgba(100, 255, 218, 0.1)",
+                  color: (theme) => theme.palette.secondary.main, // active state color
+                  backgroundColor: "rgba(100, 255, 218, 0.1)",
                 },
                 "&:hover": {
-                  background: "rgba(100, 255, 218, 0.05)",
+                  backgroundColor: "rgba(100, 255, 218, 0.05)",
                 },
                 justifyContent: open ? "initial" : "center",
               }}
-              onClick={isMobile ? onClose : undefined}
             >
               <ListItemIcon
                 sx={{
                   minWidth: 0,
                   mr: open ? 3 : "auto",
                   justifyContent: "center",
-                  color: "inherit",
                 }}
               >
                 {item.icon}

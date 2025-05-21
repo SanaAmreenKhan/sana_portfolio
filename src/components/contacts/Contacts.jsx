@@ -1,13 +1,14 @@
-import { Box, Typography, Grid, Card, Link } from "@mui/material";
+import { Typography, Grid, Card, Link, useTheme } from "@mui/material";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { GradientBox } from "../utils/MuiGradients";
 
 const Contacts = () => {
+  const theme = useTheme();
   return (
-    <Box
+    <GradientBox
       sx={{
         p: { xs: 3, md: 8 },
-        background: "linear-gradient(135deg, #0a192f 0%, #112240 100%)",
         minHeight: "100vh",
       }}
     >
@@ -16,7 +17,6 @@ const Contacts = () => {
           <Card
             sx={{
               p: 4,
-              background: "#112240",
               boxShadow: 3,
             }}
           >
@@ -30,7 +30,7 @@ const Contacts = () => {
                 sx={{
                   mr: 1,
                   verticalAlign: "middle",
-                  color: "#64ffda",
+                  color: "secondary.main",
                   fontSize: "2.5rem",
                 }}
               />
@@ -42,24 +42,32 @@ const Contacts = () => {
                 <Typography
                   variant="h6"
                   gutterBottom
-                  sx={{ color: "#64ffda", fontWeight: 500 }}
+                  sx={{ color: "secondary.main", fontWeight: 500 }}
                 >
                   Personal Details
                 </Typography>
                 <Typography variant="body1" paragraph>
-                  <strong style={{ color: "#ccd6f6" }}>Name:</strong> Sana
-                  Amreen
+                  <strong style={{ color: theme.palette.text.primary }}>
+                    Name:
+                  </strong>{" "}
+                  Sana Amreen
                 </Typography>
                 <Typography variant="body1" paragraph>
-                  <strong style={{ color: "#ccd6f6" }}>Email:</strong>{" "}
+                  <strong style={{ color: theme.palette.text.primary }}>
+                    Email:
+                  </strong>{" "}
                   er.sanaamreenkhan@gmail.com
                 </Typography>
                 <Typography variant="body1" paragraph>
-                  <strong style={{ color: "#ccd6f6" }}>Mobile:</strong>{" "}
+                  <strong style={{ color: theme.palette.text.primary }}>
+                    Mobile:
+                  </strong>{" "}
                   +966-575943210 (KSA), +91-9156736738 (India)
                 </Typography>
                 <Typography variant="body1" paragraph>
-                  <strong style={{ color: "#ccd6f6" }}>Location:</strong>{" "}
+                  <strong style={{ color: theme.palette.text.primary }}>
+                    Location:
+                  </strong>{" "}
                   Jeddah, Saudi Arabia
                 </Typography>
               </Grid>
@@ -68,29 +76,30 @@ const Contacts = () => {
                 <Typography
                   variant="h6"
                   gutterBottom
-                  sx={{ color: "#64ffda", fontWeight: 500 }}
+                  sx={{ color: "secondary.main", fontWeight: 500 }}
                 >
                   Professional Details
                 </Typography>
-                <Typography variant="body1" color="#ccd6f6" paragraph>
-                  <strong style={{ color: "#ccd6f6" }}>LinkedIn:</strong>{" "}
+                <Typography variant="body1" color="text.primary" paragraph>
+                  <strong style={{ color: theme.palette.text.primary }}>
+                    LinkedIn:
+                  </strong>{" "}
                   <Link
                     href="https://linkedin.com/in/er-sana-khan"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
-                      color: "#64ffda",
+                      color: theme.palette.secondary.main,
                       textDecoration: "none",
                       transition: "all 0.3s ease",
                       "&:hover": {
-                        color: "#ccd6f6", // Lighter color on hover
+                        color: theme.palette.text.primary, // Lighter color on hover
                         textDecoration: "underline",
                         textUnderlineOffset: "4px",
-                        textDecorationColor: "#64ffda", // Underline with teal color
+                        textDecorationColor: theme.palette.secondary.main,
                       },
                     }}
                     sx={{
-                      // Using sx prop for better MUI integration
                       display: "inline-flex",
                       alignItems: "center",
                       gap: "4px",
@@ -101,11 +110,15 @@ const Contacts = () => {
                   </Link>
                 </Typography>
                 <Typography variant="body1" paragraph>
-                  <strong style={{ color: "#ccd6f6" }}>Iqama No:</strong>{" "}
+                  <strong style={{ color: theme.palette.text.primary }}>
+                    Iqama No:
+                  </strong>{" "}
                   2597845953 | Expiry: 24/11/25
                 </Typography>
                 <Typography variant="body1" paragraph>
-                  <strong style={{ color: "#ccd6f6" }}>Passport No:</strong>{" "}
+                  <strong style={{ color: theme.palette.text.primary }}>
+                    Passport No:
+                  </strong>{" "}
                   T7585719
                 </Typography>
               </Grid>
@@ -113,7 +126,7 @@ const Contacts = () => {
           </Card>
         </Grid>
       </Grid>
-    </Box>
+    </GradientBox>
   );
 };
 

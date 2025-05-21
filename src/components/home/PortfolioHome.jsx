@@ -10,6 +10,7 @@ import {
   CardContent,
   Snackbar,
   IconButton,
+  useTheme,
 } from "@mui/material";
 import {
   LocationOn,
@@ -22,6 +23,7 @@ import {
   DownloadForOffline,
 } from "@mui/icons-material";
 import { useState } from "react";
+import { GradientBox } from "../utils/MuiGradients";
 
 const featuredProjects = [
   {
@@ -43,6 +45,8 @@ const featuredProjects = [
 ];
 
 const PortfolioHome = () => {
+  const theme = useTheme();
+
   const [open, setOpen] = useState(false);
   const [copiedText, setCopiedText] = useState("");
 
@@ -57,9 +61,7 @@ const PortfolioHome = () => {
   };
   const handleClose = () => setOpen(false);
   return (
-    <Box
-      sx={{ background: "linear-gradient(135deg, #0a192f 0%, #112240 100%)" }}
-    >
+    <GradientBox>
       {/* Hero Section - Full Viewport Height */}
       <Box
         sx={{
@@ -71,27 +73,28 @@ const PortfolioHome = () => {
         }}
       >
         <Box sx={{ maxWidth: "800px" }}>
-          <Typography variant="subtitle1" sx={{ color: "#64ffda", mb: 2 }}>
+          <Typography
+            variant="subtitle1"
+            sx={{ color: "secondary.main", mb: 2 }}
+          >
             Hi, I'm
           </Typography>
           <Typography
             variant="h1"
             sx={{
               mb: 3,
-              background: "linear-gradient(90deg, #ccd6f6 0%, #64ffda 100%)",
+              background:
+                theme.components.MuiTypography.styleOverrides.h1.background,
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
           >
             Sana Amreen Khan
           </Typography>
-          <Typography variant="h4" sx={{ color: "#8892b0", mb: 4 }}>
+          <Typography variant="h4" sx={{ color: "text.secondary", mb: 4 }}>
             Full Stack Developer specializing in MERN stack applications
           </Typography>
-          <Typography
-            variant="body1"
-            sx={{ color: "#8892b0", mb: 5, maxWidth: "600px" }}
-          >
+          <Typography variant="body1" sx={{ mb: 5, maxWidth: "600px" }}>
             I build scalable web applications with measurable performance
             improvements. 4.4+ years experience delivering 40-60% efficiency
             gains through optimized code.
@@ -104,7 +107,7 @@ const PortfolioHome = () => {
               startIcon={<DownloadForOffline />}
               sx={{
                 background: "linear-gradient(90deg, #64ffda 0%, #4fd1c5 100%)",
-                color: "#0a192f",
+                color: "primary.main",
                 "&:hover": {
                   transform: "translateY(-2px)",
                   boxShadow: "0 4px 12px rgba(100, 255, 218, 0.3)",
@@ -113,17 +116,7 @@ const PortfolioHome = () => {
             >
               Download Resume
             </Button>
-            <Button
-              variant="outlined"
-              href="/contact"
-              sx={{
-                borderColor: "#64ffda",
-                color: "#64ffda",
-                "&:hover": {
-                  backgroundColor: "rgba(100, 255, 218, 0.1)",
-                },
-              }}
-            >
+            <Button variant="outlined" href="/contact">
               Contact Me
             </Button>
           </Stack>
@@ -132,7 +125,7 @@ const PortfolioHome = () => {
 
       {/* Highlights Section */}
       <Box sx={{ px: { xs: 4, md: 8 }, py: 1 }}>
-        <Typography variant="h3" sx={{ color: "#ccd6f6", mb: 4 }}>
+        <Typography variant="h3" sx={{ color: "text.primary", mb: 4 }}>
           At a Glance
         </Typography>
 
@@ -170,9 +163,6 @@ const PortfolioHome = () => {
                   onClick={item.copy ? () => handleCopy(item.copy) : null}
                   clickable={!!item.copy}
                   sx={{
-                    background: "rgba(100, 255, 218, 0.1)",
-                    color: "#64ffda",
-                    border: "1px solid rgba(100, 255, 218, 0.3)",
                     "&:hover": {
                       background: item.copy
                         ? "rgba(100, 255, 218, 0.2)"
@@ -185,7 +175,7 @@ const PortfolioHome = () => {
           </Grid>
 
           <Grid size={{ xs: 12, md: 6 }}>
-            <Typography variant="h5" sx={{ color: "#ccd6f6", mb: 2 }}>
+            <Typography variant="h5" sx={{ color: "text.primary", mb: 2 }}>
               Technical Expertise
             </Typography>
             <Stack direction="row" flexWrap="wrap" gap={1}>
@@ -203,15 +193,7 @@ const PortfolioHome = () => {
                 "Git",
                 "Figma",
               ].map((skill) => (
-                <Chip
-                  key={skill}
-                  label={skill}
-                  sx={{
-                    background: "rgba(100, 255, 218, 0.1)",
-                    color: "#64ffda",
-                    border: "1px solid rgba(100, 255, 218, 0.3)",
-                  }}
-                />
+                <Chip key={skill} label={skill} />
               ))}
             </Stack>
           </Grid>
@@ -226,7 +208,7 @@ const PortfolioHome = () => {
           background: "rgba(15, 23, 42, 0.5)",
         }}
       >
-        <Typography variant="h3" sx={{ color: "#ccd6f6", mb: 6 }}>
+        <Typography variant="h3" sx={{ color: "text.primary", mb: 6 }}>
           Featured Projects
         </Typography>
 
@@ -236,13 +218,6 @@ const PortfolioHome = () => {
               <Card
                 sx={{
                   height: "100%",
-                  background: "#112240",
-                  border: "1px solid rgba(100, 255, 218, 0.1)",
-                  transition: "transform 0.3s ease",
-                  "&:hover": {
-                    transform: "translateY(-8px)",
-                    boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)",
-                  },
                 }}
               >
                 <CardMedia
@@ -253,16 +228,28 @@ const PortfolioHome = () => {
                   sx={{ objectFit: "cover" }}
                 />
                 <CardContent>
-                  <Typography variant="h5" sx={{ color: "#64ffda", mb: 1 }}>
+                  <Typography
+                    variant="h5"
+                    sx={{ color: "secondary.main", mb: 1 }}
+                  >
                     {project.title}
                   </Typography>
-                  <Typography variant="body2" sx={{ color: "#8892b0", mb: 2 }}>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: "secondary.main", mb: 2 }}
+                  >
                     {project.techStack}
                   </Typography>
-                  <Typography variant="body1" sx={{ color: "#ccd6f6", mb: 2 }}>
+                  <Typography
+                    variant="body1"
+                    sx={{ color: "text.primary", mb: 2 }}
+                  >
                     {project.description}
                   </Typography>
-                  <Typography variant="caption" sx={{ color: "#64ffda" }}>
+                  <Typography
+                    variant="caption"
+                    sx={{ color: "secondary.main" }}
+                  >
                     {project.companyNote}
                   </Typography>
                 </CardContent>
@@ -276,12 +263,7 @@ const PortfolioHome = () => {
             variant="outlined"
             href="/portfolio"
             sx={{
-              borderColor: "#64ffda",
-              color: "#64ffda",
               px: 4,
-              "&:hover": {
-                background: "rgba(100, 255, 218, 0.1)",
-              },
             }}
           >
             View All Projects
@@ -305,7 +287,7 @@ const PortfolioHome = () => {
           },
         }}
       />
-    </Box>
+    </GradientBox>
   );
 };
 

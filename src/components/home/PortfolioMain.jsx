@@ -37,11 +37,6 @@ const PortfolioMain = () => {
             top: 10,
             left: 10,
             zIndex: 1200,
-            color: "#64ffda",
-            backgroundColor: "#112240",
-            "&:hover": {
-              backgroundColor: "rgba(100, 255, 218, 0.1)",
-            },
           }}
           onClick={() => setSidebarOpen(!sidebarOpen)}
         >
@@ -67,7 +62,7 @@ const PortfolioMain = () => {
       <Grid
         size={{ xs: 12, md: 9 }}
         sx={{
-          background: "#0a192f",
+          background: "primary.main",
           overflowY: "auto",
           maxHeight: "100vh",
         }}

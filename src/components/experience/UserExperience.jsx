@@ -10,6 +10,7 @@ import {
 import WorkIcon from "@mui/icons-material/Work";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import { GradientBox } from "../utils/MuiGradients";
 
 const experiences = [
   {
@@ -66,21 +67,14 @@ const UserExperience = () => {
 
   const cardStyle = {
     p: 3,
-    background: "#112240",
-    border: "1px solid rgba(100, 255, 218, 0.1)",
     borderRadius: 2,
     boxShadow: 3,
-    transition: "transform 0.3s ease",
-    "&:hover": {
-      transform: "translateY(-5px)",
-    },
   };
 
   return (
-    <Box
+    <GradientBox
       sx={{
         p: { xs: 3, md: 8 },
-        background: "linear-gradient(135deg, #0a192f 0%, #112240 100%)",
         minHeight: "100vh",
       }}
     >
@@ -126,29 +120,37 @@ const UserExperience = () => {
                         flexWrap: "wrap",
                       }}
                     >
-                      <Typography variant="h5" sx={{ color: "#64ffda", mb: 1 }}>
+                      <Typography
+                        variant="h5"
+                        sx={{ color: "secondary.main", mb: 1 }}
+                      >
                         {exp.position}
                       </Typography>
-                      <Typography variant="body2" sx={{ color: "#8892b0" }}>
+                      <Typography
+                        variant="body2"
+                        sx={{ color: "text.secondary" }}
+                      >
                         <CalendarTodayIcon
                           sx={{
                             fontSize: "16px",
                             verticalAlign: "middle",
                             mr: 1,
-                            color: "#64ffda",
                           }}
                         />
                         {exp.date}
                       </Typography>
                     </Box>
 
-                    <Typography variant="h6" sx={{ color: "#ccd6f6", mb: 2 }}>
+                    <Typography
+                      variant="h6"
+                      sx={{ color: "text.primary", mb: 2 }}
+                    >
                       <WorkIcon
                         sx={{
                           fontSize: "18px",
                           verticalAlign: "middle",
                           mr: 1,
-                          color: "#8892b0",
+                          color: "text.secondary",
                         }}
                       />
                       {exp.company}
@@ -157,20 +159,18 @@ const UserExperience = () => {
                           fontSize: "18px",
                           verticalAlign: "middle",
                           mx: 1,
-                          color: "#8892b0",
+                          color: "text.secondary",
                         }}
                       />
                       {exp.location}
                     </Typography>
 
-                    <Divider
-                      sx={{ borderColor: "rgba(100, 255, 218, 0.1)", my: 2 }}
-                    />
+                    <Divider sx={{ my: 2 }} />
 
                     <Typography
                       variant="subtitle1"
                       sx={{
-                        color: "#ccd6f6",
+                        color: "text.primary",
                         mb: 1,
                         display: "flex",
                         alignItems: "center",
@@ -182,7 +182,7 @@ const UserExperience = () => {
                           width: "8px",
                           height: "8px",
                           borderRadius: "50%",
-                          background: "#64ffda",
+                          background: theme.palette.secondary.main,
                           mr: 1.5,
                         }}
                       />
@@ -204,7 +204,7 @@ const UserExperience = () => {
                     <Typography
                       variant="subtitle1"
                       sx={{
-                        color: "#ccd6f6",
+                        color: "text.primary",
                         mb: 1,
                         display: "flex",
                         alignItems: "center",
@@ -216,7 +216,7 @@ const UserExperience = () => {
                           width: "8px",
                           height: "8px",
                           borderRadius: "50%",
-                          background: "#64ffda",
+                          background: theme.palette.secondary.main,
                           mr: 1.5,
                         }}
                       />
@@ -230,9 +230,6 @@ const UserExperience = () => {
                           label={skill}
                           size="small"
                           sx={{
-                            background: "rgba(100, 255, 218, 0.1)",
-                            color: "#64ffda",
-                            border: "1px solid rgba(100, 255, 218, 0.3)",
                             borderRadius: "4px",
                           }}
                         />
@@ -250,7 +247,7 @@ const UserExperience = () => {
                     width: 18,
                     height: 18,
                     borderRadius: "50%",
-                    backgroundColor: "#64ffda",
+                    backgroundColor: theme.palette.secondary.main,
                     border: "3px solid #112240",
                     zIndex: 1,
                   }}
@@ -270,7 +267,7 @@ const UserExperience = () => {
                     width: 18,
                     height: 18,
                     borderRadius: "50%",
-                    backgroundColor: "#64ffda",
+                    backgroundColor: theme.palette.secondary.main,
                     border: "3px solid #112240",
                     zIndex: 1,
                   }}
@@ -284,29 +281,37 @@ const UserExperience = () => {
                         flexWrap: "wrap",
                       }}
                     >
-                      <Typography variant="h5" sx={{ color: "#64ffda", mb: 1 }}>
+                      <Typography
+                        variant="h5"
+                        sx={{ color: "secondary.main", mb: 1 }}
+                      >
                         {exp.position}
                       </Typography>
-                      <Typography variant="body2" sx={{ color: "#8892b0" }}>
+                      <Typography
+                        variant="body2"
+                        sx={{ color: "text.secondary" }}
+                      >
                         <CalendarTodayIcon
                           sx={{
                             fontSize: "16px",
                             verticalAlign: "middle",
                             mr: 1,
-                            color: "#64ffda",
                           }}
                         />
                         {exp.date}
                       </Typography>
                     </Box>
 
-                    <Typography variant="h6" sx={{ color: "#ccd6f6", mb: 2 }}>
+                    <Typography
+                      variant="h6"
+                      sx={{ color: "text.primary", mb: 2 }}
+                    >
                       <WorkIcon
                         sx={{
                           fontSize: "18px",
                           verticalAlign: "middle",
                           mr: 1,
-                          color: "#8892b0",
+                          color: "text.secondary",
                         }}
                       />
                       {exp.company}
@@ -315,20 +320,18 @@ const UserExperience = () => {
                           fontSize: "18px",
                           verticalAlign: "middle",
                           mx: 1,
-                          color: "#8892b0",
+                          color: "text.secondary",
                         }}
                       />
                       {exp.location}
                     </Typography>
 
-                    <Divider
-                      sx={{ borderColor: "rgba(100, 255, 218, 0.1)", my: 2 }}
-                    />
+                    <Divider sx={{ my: 2 }} />
 
                     <Typography
                       variant="subtitle1"
                       sx={{
-                        color: "#ccd6f6",
+                        color: "text.primary",
                         mb: 1,
                         display: "flex",
                         alignItems: "center",
@@ -340,7 +343,7 @@ const UserExperience = () => {
                           width: "8px",
                           height: "8px",
                           borderRadius: "50%",
-                          background: "#64ffda",
+                          background: theme.palette.secondary.main,
                           mr: 1.5,
                         }}
                       />
@@ -362,7 +365,7 @@ const UserExperience = () => {
                     <Typography
                       variant="subtitle1"
                       sx={{
-                        color: "#ccd6f6",
+                        color: "text.primary",
                         mb: 1,
                         display: "flex",
                         alignItems: "center",
@@ -374,7 +377,7 @@ const UserExperience = () => {
                           width: "8px",
                           height: "8px",
                           borderRadius: "50%",
-                          background: "#64ffda",
+                          background: theme.palette.secondary.main,
                           mr: 1.5,
                         }}
                       />
@@ -388,9 +391,6 @@ const UserExperience = () => {
                           label={skill}
                           size="small"
                           sx={{
-                            background: "rgba(100, 255, 218, 0.1)",
-                            color: "#64ffda",
-                            border: "1px solid rgba(100, 255, 218, 0.3)",
                             borderRadius: "4px",
                           }}
                         />
@@ -403,7 +403,7 @@ const UserExperience = () => {
           </Box>
         ))}
       </Box>
-    </Box>
+    </GradientBox>
   );
 };
 

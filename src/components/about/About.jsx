@@ -6,6 +6,7 @@ import {
   Avatar,
   Card,
   Stack,
+  useTheme,
 } from "@mui/material";
 import {
   Code,
@@ -21,52 +22,54 @@ import {
   BugReport,
   DataObject,
 } from "@mui/icons-material";
+import { GradientBox } from "../utils/MuiGradients";
 
 const About = () => {
+  const theme = useTheme();
+
   const skillCategories = [
     {
       title: "Frontend",
-      icon: <Palette sx={{ color: "#64ffda" }} />,
+      icon: <Palette />,
       skills: ["React.js", "TypeScript", "Material-UI", "Three.js", "Redux"],
       iconMap: {
-        "React.js": <Code sx={{ color: "#64ffda" }} />,
-        TypeScript: <DataObject sx={{ color: "#64ffda" }} />,
-        "Material-UI": <DesignServices sx={{ color: "#64ffda" }} />,
-        "Three.js": <DesignServices sx={{ color: "#64ffda" }} />,
-        Redux: <Storage sx={{ color: "#64ffda" }} />,
+        "React.js": <Code />,
+        TypeScript: <DataObject />,
+        "Material-UI": <DesignServices />,
+        "Three.js": <DesignServices />,
+        Redux: <Storage />,
       },
     },
     {
       title: "Backend",
-      icon: <Dns sx={{ color: "#64ffda" }} />,
+      icon: <Dns />,
       skills: ["Node.js", "Express.js", "MongoDB", "REST APIs", "JWT"],
       iconMap: {
-        "Node.js": <Code sx={{ color: "#64ffda" }} />,
-        "Express.js": <Api sx={{ color: "#64ffda" }} />,
-        MongoDB: <Storage sx={{ color: "#64ffda" }} />,
-        "REST APIs": <Api sx={{ color: "#64ffda" }} />,
-        JWT: <Security sx={{ color: "#64ffda" }} />,
+        "Node.js": <Code />,
+        "Express.js": <Api />,
+        MongoDB: <Storage />,
+        "REST APIs": <Api />,
+        JWT: <Security />,
       },
     },
     {
       title: "Tools & Platforms",
-      icon: <Build sx={{ color: "#64ffda" }} />,
+      icon: <Build />,
       skills: ["Git", "Azure DevOps", "Postman", "Figma", "Jest"],
       iconMap: {
-        Git: <GitHub sx={{ color: "#64ffda" }} />,
-        "Azure DevOps": <Cloud sx={{ color: "#64ffda" }} />,
-        Postman: <Api sx={{ color: "#64ffda" }} />,
-        Figma: <DesignServices sx={{ color: "#64ffda" }} />,
-        Jest: <BugReport sx={{ color: "#64ffda" }} />,
+        Git: <GitHub />,
+        "Azure DevOps": <Cloud />,
+        Postman: <Api />,
+        Figma: <DesignServices />,
+        Jest: <BugReport />,
       },
     },
   ];
 
   return (
-    <Box
+    <GradientBox
       sx={{
         p: { xs: 3, md: 8 },
-        background: "linear-gradient(135deg, #0a192f 0%, #112240 100%)",
         minHeight: "100vh",
       }}
     >
@@ -74,16 +77,16 @@ const About = () => {
         {/* Profile Section */}
         <Grid size={{ xs: 12, md: 4 }}>
           <Box
-            sx={{
+            sx={(theme) => ({
               position: "sticky",
               top: "100px",
               textAlign: "center",
               p: 4,
-              background: "#112240",
+              background: theme.palette.background.paper,
               borderRadius: 2,
-              border: "1px solid rgba(100, 255, 218, 0.1)",
+              border: theme.components.MuiCard.styleOverrides.root.border,
               height: "100%",
-            }}
+            })}
           >
             <Avatar
               src="/sana-profile.jpg"
@@ -95,21 +98,21 @@ const About = () => {
                 mx: "auto",
               }}
             />
-            <Typography variant="h4" sx={{ color: "#ccd6f6", mb: 1 }}>
+            <Typography variant="h4" sx={{ mb: 1 }}>
               Sana Amreen Khan
             </Typography>
-            <Typography variant="h6" sx={{ color: "#64ffda", mb: 3 }}>
+            <Typography variant="h6" sx={{ color: "secondary.main", mb: 3 }}>
               Full Stack MERN Developer
             </Typography>
 
             <Box sx={{ textAlign: "left", mb: 3 }}>
-              <Typography variant="body1" sx={{ color: "#8892b0", mb: 1 }}>
+              <Typography variant="body1" sx={{ mb: 1 }}>
                 <strong>Location:</strong> Jeddah, Saudi Arabia
               </Typography>
-              <Typography variant="body1" sx={{ color: "#8892b0", mb: 1 }}>
+              <Typography variant="body1" sx={{ mb: 1 }}>
                 <strong>Experience:</strong> 4.4+ Years
               </Typography>
-              <Typography variant="body1" sx={{ color: "#8892b0", mb: 1 }}>
+              <Typography variant="body1" sx={{ mb: 1 }}>
                 <strong>Specialization:</strong> Scalable Web Apps
               </Typography>
             </Box>
@@ -118,8 +121,7 @@ const About = () => {
               <Chip
                 label="Available for Hire"
                 sx={{
-                  background: "rgba(100, 255, 218, 0.1)",
-                  color: "#64ffda",
+                  color: "secondary.main",
                   border: "1px solid #64ffda",
                 }}
               />
@@ -133,7 +135,8 @@ const About = () => {
             variant="h2"
             sx={{
               mb: 4,
-              background: "linear-gradient(90deg, #ccd6f6 0%, #64ffda 100%)",
+              background:
+                theme.components.MuiTypography.styleOverrides.h1.background,
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
@@ -145,32 +148,30 @@ const About = () => {
             sx={{
               p: 4,
               mb: 4,
-              background: "#112240",
-              border: "1px solid rgba(100, 255, 218, 0.1)",
             }}
           >
-            <Typography variant="body1" sx={{ color: "#8892b0", mb: 2 }}>
+            <Typography variant="body1" sx={{ mb: 2 }}>
               Innovative Full Stack Developer with 4.4 years of experience
               building scalable applications using modern JavaScript frameworks.
               Recently upskilled in backend development to complement my strong
               frontend expertise, now specializing in end-to-end MERN stack
               solutions.
             </Typography>
-            <Typography variant="body1" sx={{ color: "#8892b0", mb: 2 }}>
+            <Typography variant="body1" sx={{ mb: 2 }}>
               My passion lies in creating efficient, maintainable code and
               optimizing user experiences. I've successfully delivered projects
               with measurable performance improvements, including 60% efficiency
               gains and 50% error reductions through advanced UI
               implementations.
             </Typography>
-            <Typography variant="body1" sx={{ color: "#8892b0" }}>
+            <Typography variant="body1">
               When not coding, I stay updated with emerging technologies through
               continuous learning platforms like Frontend Masters and Udemy.
             </Typography>
           </Card>
 
           {/* Skills Section */}
-          <Typography variant="h3" sx={{ color: "#ccd6f6", mb: 3 }}>
+          <Typography variant="h3" sx={{ mb: 3 }}>
             Technical Skills
           </Typography>
 
@@ -182,13 +183,12 @@ const About = () => {
                     height: "100%",
                     p: 3,
                     background: "rgba(15, 23, 42, 0.7)",
-                    border: "1px solid rgba(100, 255, 218, 0.1)",
                   }}
                 >
                   <Typography
                     variant="h5"
                     sx={{
-                      color: "#64ffda",
+                      color: "secondary.main",
                       mb: 2,
                       display: "flex",
                       alignItems: "center",
@@ -211,7 +211,10 @@ const About = () => {
                         }}
                       >
                         {category.iconMap[skill]}
-                        <Typography variant="body1" sx={{ color: "#ccd6f6" }}>
+                        <Typography
+                          variant="body1"
+                          sx={{ color: "text.primary" }}
+                        >
                           {skill}
                         </Typography>
                       </Box>
@@ -223,36 +226,32 @@ const About = () => {
           </Grid>
 
           {/* Education */}
-          <Typography variant="h3" sx={{ color: "#ccd6f6", mb: 3 }}>
+          <Typography variant="h3" sx={{ mb: 3 }}>
             Education
           </Typography>
           <Card
             sx={{
               p: 3,
-              background: "#112240",
-              border: "1px solid rgba(100, 255, 218, 0.1)",
             }}
           >
             <Box sx={{ mb: 2 }}>
-              <Typography variant="h6" sx={{ color: "#64ffda" }}>
+              <Typography variant="h6" color="secondary.main">
                 Matoshri Pratishthan COE, Nanded
               </Typography>
-              <Typography variant="body1" sx={{ color: "#8892b0" }}>
+              <Typography variant="body1">
                 B.E. (CGPA: 9.18) • 2015-2018
               </Typography>
             </Box>
             <Box>
-              <Typography variant="h6" sx={{ color: "#64ffda" }}>
+              <Typography variant="h6" color="secondary.main">
                 Govt. Polytechnic College Nanded
               </Typography>
-              <Typography variant="body1" sx={{ color: "#8892b0" }}>
-                Diploma (77%) • 2011-2014
-              </Typography>
+              <Typography variant="body1">Diploma (77%) • 2011-2014</Typography>
             </Box>
           </Card>
         </Grid>
       </Grid>
-    </Box>
+    </GradientBox>
   );
 };
 

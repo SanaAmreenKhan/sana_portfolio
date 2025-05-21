@@ -5,16 +5,13 @@ const theme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#0a192f",    // Navy
-      light: "#172a45",   // Lighter navy
+      main: "#0a192f", // Navy
     },
     secondary: {
-      main: "#64ffda",    // Teal
-      light: "#4fd1c5",   // Muted teal
+      main: "#64ffda", // Teal
     },
     background: {
-      default: "#0a192f",
-      paper: "#112240",   // Slightly lighter navy for cards
+      paper: "#112240", // Slightly lighter navy for cards
     },
     text: {
       primary: "#ccd6f6", // Soft white-blue
@@ -98,6 +95,13 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderColor: "rgba(100, 255, 218, 0.1)",
+        },
+      },
+    },
+    MuiSvgIcon: {
+      styleOverrides: {
+        root: {
+          color: "#64ffda",
         },
       },
     },
