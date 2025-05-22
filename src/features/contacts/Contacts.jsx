@@ -1,6 +1,12 @@
-import { Typography, Grid, Card, Link, useTheme } from "@mui/material";
-import ContactMailIcon from "@mui/icons-material/ContactMail";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import {
+  Typography,
+  Grid,
+  Card,
+  Link,
+  useTheme,
+  ContactMail,
+  LinkedIn,
+} from "../../lib";
 import { GradientBox } from "../../components/utils/MuiGradients";
 
 const Contacts = () => {
@@ -26,7 +32,7 @@ const Contacts = () => {
               gutterBottom
               sx={{ mb: 4 }}
             >
-              <ContactMailIcon
+              <ContactMail
                 sx={{
                   mr: 1,
                   verticalAlign: "middle",
@@ -105,7 +111,7 @@ const Contacts = () => {
                       gap: "4px",
                     }}
                   >
-                    <LinkedInIcon sx={{ fontSize: "1.4rem" }} />
+                    <LinkedIn sx={{ fontSize: "1.4rem" }} />
                     linkedin.com/in/er-sana-khan
                   </Link>
                 </Typography>

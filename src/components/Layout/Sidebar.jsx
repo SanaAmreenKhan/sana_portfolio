@@ -1,26 +1,24 @@
-import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import { NavLink, Outlet } from "react-router-dom";
 import {
+  List,
+  Divider,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
   Avatar,
   Box,
   Typography,
   IconButton,
   useMediaQuery,
-} from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import {
-  Home as HomeIcon,
-  Info as AboutIcon,
-  Work as ExperienceIcon,
-  Mic as PitchIcon,
-  Folder as ProjectsIcon,
-  Email as ContactIcon,
-} from "@mui/icons-material";
+  HomeIcon,
+  AboutIcon,
+  ExperienceIcon,
+  PitchIcon,
+  ProjectsIcon,
+  ContactIcon,
+  NavLink,
+  CloseIcon,
+} from "../../lib";
 
 const renderComponent = [
   { title: "Home", to: "/", icon: <HomeIcon /> },
@@ -115,7 +113,6 @@ const Sidebar = ({ open, onClose }) => {
           </ListItem>
         ))}
       </List>
-      <Outlet />
     </Box>
   );
 };

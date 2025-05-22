@@ -1,5 +1,4 @@
-import { Box, Typography, Card, Button, useTheme } from "@mui/material";
-import { PlayCircle } from "@mui/icons-material";
+import { Box, Typography, Card, Button, useTheme, PlayCircle } from "../../lib";
 import { GradientBox } from "../../components/utils/MuiGradients";
 
 const ElevatorPitch = () => {
@@ -73,7 +72,7 @@ const ElevatorPitch = () => {
             <Button
               variant="contained"
               size="large"
-              startIcon={<PlayCircle />}
+              startIcon={<PlayCircle sx={{ color: "text.secondary" }} />}
               sx={{
                 background: "linear-gradient(90deg, #64ffda 0%, #4fd1c5 100%)",
                 color: "primary.main",

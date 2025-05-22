@@ -6,10 +6,10 @@ import {
   Chip,
   useTheme,
   useMediaQuery,
-} from "@mui/material";
-import WorkIcon from "@mui/icons-material/Work";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+  ExperienceIcon,
+  LocationOn,
+  CalendarToday,
+} from "../../lib";
 import { GradientBox } from "../../components/utils/MuiGradients";
 
 const experiences = [
@@ -130,7 +130,7 @@ const UserExperience = () => {
                         variant="body2"
                         sx={{ color: "text.secondary" }}
                       >
-                        <CalendarTodayIcon
+                        <CalendarToday
                           sx={{
                             fontSize: "16px",
                             verticalAlign: "middle",
@@ -145,7 +145,7 @@ const UserExperience = () => {
                       variant="h6"
                       sx={{ color: "text.primary", mb: 2 }}
                     >
-                      <WorkIcon
+                      <ExperienceIcon
                         sx={{
                           fontSize: "18px",
                           verticalAlign: "middle",
@@ -154,7 +154,7 @@ const UserExperience = () => {
                         }}
                       />
                       {exp.company}
-                      <LocationOnIcon
+                      <LocationOn
                         sx={{
                           fontSize: "18px",
                           verticalAlign: "middle",
@@ -291,7 +291,7 @@ const UserExperience = () => {
                         variant="body2"
                         sx={{ color: "text.secondary" }}
                       >
-                        <CalendarTodayIcon
+                        <CalendarToday
                           sx={{
                             fontSize: "16px",
                             verticalAlign: "middle",
@@ -306,7 +306,7 @@ const UserExperience = () => {
                       variant="h6"
                       sx={{ color: "text.primary", mb: 2 }}
                     >
-                      <WorkIcon
+                      <ExperienceIcon
                         sx={{
                           fontSize: "18px",
                           verticalAlign: "middle",
@@ -315,7 +315,7 @@ const UserExperience = () => {
                         }}
                       />
                       {exp.company}
-                      <LocationOnIcon
+                      <LocationOn
                         sx={{
                           fontSize: "18px",
                           verticalAlign: "middle",

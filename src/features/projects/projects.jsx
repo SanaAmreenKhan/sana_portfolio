@@ -6,8 +6,9 @@ import {
   CardMedia,
   Chip,
   useTheme,
-} from "@mui/material";
-import { Code, Storage } from "@mui/icons-material";
+  Code,
+  Storage,
+} from "../../lib";
 import { GradientBox } from "../../components/utils/MuiGradients";
 
 const projects = [

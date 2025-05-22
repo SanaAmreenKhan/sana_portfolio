@@ -11,17 +11,15 @@ import {
   Snackbar,
   IconButton,
   useTheme,
-} from "@mui/material";
-import {
-  LocationOn,
-  Work,
-  Email,
-  LinkedIn,
+  ExperienceIcon,
+  ContactIcon,
   Badge,
   AssignmentInd,
-  Close,
+  LocationOn,
+  LinkedIn,
   DownloadForOffline,
-} from "@mui/icons-material";
+  CloseIcon,
+} from "../../lib";
 import { useState } from "react";
 import { GradientBox } from "../../components/utils/MuiGradients";
 
@@ -134,9 +132,9 @@ const PortfolioHome = () => {
             <Stack direction="row" flexWrap="wrap" gap={1.5} sx={{ mb: 4 }}>
               {[
                 { icon: <LocationOn />, label: "Jeddah, Saudi Arabia" },
-                { icon: <Work />, label: "4.4+ Years Experience" },
+                { icon: <ExperienceIcon />, label: "4.4+ Years Experience" },
                 {
-                  icon: <Email />,
+                  icon: <ContactIcon />,
                   label: "er.sanaamreenkhan@gmail.com",
                   copy: "er.sanaamreenkhan@gmail.com",
                 },
@@ -278,7 +276,7 @@ const PortfolioHome = () => {
         message={`Copied: ${copiedText}`}
         action={
           <IconButton size="small" color="inherit" onClick={handleClose}>
-            <Close fontSize="small" />
+            <CloseIcon fontSize="small" />
           </IconButton>
         }
         sx={{

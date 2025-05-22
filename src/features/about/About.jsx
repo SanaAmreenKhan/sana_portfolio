@@ -7,8 +7,6 @@ import {
   Card,
   Stack,
   useTheme,
-} from "@mui/material";
-import {
   Code,
   Storage,
   Dns,
@@ -21,7 +19,7 @@ import {
   Api,
   BugReport,
   DataObject,
-} from "@mui/icons-material";
+} from "../../lib";
 import { GradientBox } from "../../components/utils/MuiGradients";
 
 const About = () => {

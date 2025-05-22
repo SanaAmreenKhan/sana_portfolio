@@ -1,12 +1,9 @@
 import React from "react";
 
 class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
+  state = { hasError: false };
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError() {
     return { hasError: true };
   }
 
@@ -16,7 +13,12 @@ class ErrorBoundary extends React.Component {
 
   render() {
     if (this.state.hasError) {
-      return <h2>Something went wrong. Please try again later.</h2>;
+      return (
+        <div className="error-fallback">
+          <h2>Something went wrong. Please try again later.</h2>
+          <button onClick={() => window.location.reload()}>Refresh Page</button>
+        </div>
+      );
     }
 
     return this.props.children;

@@ -1,5 +1,11 @@
-import { Grid, IconButton, useMediaQuery, useTheme } from "@mui/material";
-import { Route, Routes } from "react-router-dom";
+import {
+  Grid,
+  IconButton,
+  useMediaQuery,
+  useTheme,
+  Route,
+  Routes,
+} from "../../lib";
 import PortfolioHome from "./PortfolioHome";
 import About from "../about/About";
 import UserExperience from "../experience/UserExperience";
@@ -7,8 +13,7 @@ import ElevatorPitch from "../elevator pitch/ElevatorPitch";
 import Contacts from "../contacts/Contacts";
 import Projects from "../projects/projects";
 import { useState } from "react";
-import MenuIcon from "@mui/icons-material/Menu";
-import Sidebar from "../../components/Layout/Sidebar"
+import Sidebar from "../../components/Layout/Sidebar";
 
 const PortfolioMain = () => {
   const theme = useTheme();
@@ -40,7 +45,7 @@ const PortfolioMain = () => {
           }}
           onClick={() => setSidebarOpen(!sidebarOpen)}
         >
-          <MenuIcon />
+          <Menu />
         </IconButton>
       )}
 
