@@ -18,7 +18,7 @@ const MainProfile = () => {
         })}
       >
         <Avatar
-          src="/sana-profile.jpg"
+          src="/sana-profile.jpeg"
           sx={{
             width: 150,
             height: 150,

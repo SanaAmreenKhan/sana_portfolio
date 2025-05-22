@@ -44,7 +44,7 @@ const Sidebar = ({ open, onClose }) => {
       <List>
         <Box sx={{ p: 2, textAlign: "center", mt: isMobile ? 4 : 0 }}>
           <Avatar
-            src="/user.png"
+            src="/sana-profile.jpeg"
             alt="Sana's Image"
             sx={{
               width: 80,
@@ -59,7 +59,7 @@ const Sidebar = ({ open, onClose }) => {
                 {personalDetails.name}
               </Typography>
               <Typography variant="body2" sx={{ color: "secondary.main" }}>
-                {personalDetails.role}
+                Full Stack MERN Developer
               </Typography>
             </>
           )}
