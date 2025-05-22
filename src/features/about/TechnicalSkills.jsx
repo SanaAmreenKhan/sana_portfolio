@@ -66,7 +66,7 @@ const TechnicalSkills = () => {
 
       <Grid container spacing={3} sx={{ mb: 4 }}>
         {skillCategories.map((category, index) => (
-          <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
+          <Grid size={{ xs: 12, sm: 6, md: 6, lg: 4 }} key={index}>
             <Card
               sx={{
                 height: "100%",
