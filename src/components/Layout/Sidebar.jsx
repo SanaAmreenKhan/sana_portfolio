@@ -10,24 +10,11 @@ import {
   Typography,
   IconButton,
   useMediaQuery,
-  HomeIcon,
-  AboutIcon,
-  ExperienceIcon,
-  PitchIcon,
-  ProjectsIcon,
-  ContactIcon,
   NavLink,
   CloseIcon,
 } from "../../lib";
-
-const renderComponent = [
-  { title: "Home", to: "/", icon: <HomeIcon /> },
-  { title: "About", to: "/about", icon: <AboutIcon /> },
-  { title: "Experience", to: "/experience", icon: <ExperienceIcon /> },
-  { title: "Elevator Pitch", to: "/elevator-pitch", icon: <PitchIcon /> },
-  { title: "Projects", to: "/projects", icon: <ProjectsIcon /> },
-  { title: "Contact", to: "/contact", icon: <ContactIcon /> },
-];
+import { renderComponent } from "../common/commonReuseableObject";
+import { personalDetails } from "../utils/commonNamed";
 
 const Sidebar = ({ open, onClose }) => {
   const isMobile = useMediaQuery("(max-width:900px)");
@@ -69,10 +56,10 @@ const Sidebar = ({ open, onClose }) => {
           {open && (
             <>
               <Typography variant="h6" sx={{ mt: 2, color: "text.primary" }}>
-                Sana Amreen Khan
+                {personalDetails.name}
               </Typography>
               <Typography variant="body2" sx={{ color: "secondary.main" }}>
-                Full Stack Developer
+                {personalDetails.role}
               </Typography>
             </>
           )}
