@@ -8,7 +8,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { Code, Storage } from "@mui/icons-material";
-import { GradientBox } from "../utils/MuiGradients";
+import { GradientBox } from "../../components/utils/MuiGradients";
 
 const projects = [
   {

@@ -10,7 +10,7 @@ import {
 import WorkIcon from "@mui/icons-material/Work";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
-import { GradientBox } from "../utils/MuiGradients";
+import { GradientBox } from "../../components/utils/MuiGradients";
 
 const experiences = [
   {

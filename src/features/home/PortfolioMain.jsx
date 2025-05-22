@@ -1,5 +1,4 @@
 import { Grid, IconButton, useMediaQuery, useTheme } from "@mui/material";
-import Sidebar from "../sidebar/sidebar";
 import { Route, Routes } from "react-router-dom";
 import PortfolioHome from "./PortfolioHome";
 import About from "../about/About";
@@ -9,6 +8,7 @@ import Contacts from "../contacts/Contacts";
 import Projects from "../projects/projects";
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
+import Sidebar from "../../components/Layout/Sidebar"
 
 const PortfolioMain = () => {
   const theme = useTheme();

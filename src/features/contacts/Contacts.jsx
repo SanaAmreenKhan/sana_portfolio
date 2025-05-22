@@ -1,7 +1,7 @@
 import { Typography, Grid, Card, Link, useTheme } from "@mui/material";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import { GradientBox } from "../utils/MuiGradients";
+import { GradientBox } from "../../components/utils/MuiGradients";
 
 const Contacts = () => {
   const theme = useTheme();

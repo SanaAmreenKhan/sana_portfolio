@@ -22,7 +22,7 @@ import {
   BugReport,
   DataObject,
 } from "@mui/icons-material";
-import { GradientBox } from "../utils/MuiGradients";
+import { GradientBox } from "../../components/utils/MuiGradients";
 
 const About = () => {
   const theme = useTheme();

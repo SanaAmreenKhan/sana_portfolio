@@ -1,6 +1,6 @@
 import { Box, Typography, Card, Button, useTheme } from "@mui/material";
 import { PlayCircle } from "@mui/icons-material";
-import { GradientBox } from "../utils/MuiGradients";
+import { GradientBox } from "../../components/utils/MuiGradients";
 
 const ElevatorPitch = () => {
   const theme = useTheme();

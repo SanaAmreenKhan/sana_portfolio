@@ -23,7 +23,7 @@ import {
   DownloadForOffline,
 } from "@mui/icons-material";
 import { useState } from "react";
-import { GradientBox } from "../utils/MuiGradients";
+import { GradientBox } from "../../components/utils/MuiGradients";
 
 const featuredProjects = [
   {
