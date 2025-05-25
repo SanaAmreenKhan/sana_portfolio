@@ -11,7 +11,7 @@ import {
   IconButton,
   useMediaQuery,
   NavLink,
-  CloseIcon,
+  Close,
 } from "../../lib";
 import { renderComponent } from "../common/commonReuseableObject";
 import { personalDetails } from "../utils/commonNamed";
@@ -35,9 +35,10 @@ const Sidebar = ({ open, onClose }) => {
             position: "absolute",
             right: 8,
             top: 8,
+            zIndex: 1400,
           }}
         >
-          <CloseIcon />
+          <Close />
         </IconButton>
       )}
 
@@ -70,6 +71,9 @@ const Sidebar = ({ open, onClose }) => {
         {renderComponent.map((item, index) => (
           <ListItem key={index} disablePadding sx={{ display: "block" }}>
             <ListItemButton
+              onClick={() => {
+                if (isMobile) onClose();
+              }}
               component={NavLink}
               to={item.to}
               sx={{

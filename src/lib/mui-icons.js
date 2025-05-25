@@ -1,5 +1,4 @@
 // src/lib/mui-icons.js
-export { default as CloseIcon } from "@mui/icons-material/Close";
 export { default as HomeIcon } from "@mui/icons-material/Home";
 export { default as AboutIcon } from "@mui/icons-material/Info";
 export { default as ExperienceIcon } from "@mui/icons-material/Work";
@@ -28,6 +27,7 @@ import {
   AssignmentInd,
   DownloadForOffline,
   Menu,
+  Close,
 } from "@mui/icons-material";
 
 export {
@@ -52,4 +52,5 @@ export {
   AssignmentInd,
   DownloadForOffline,
   Menu,
+  Close,
 };

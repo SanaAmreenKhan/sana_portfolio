@@ -25,11 +25,11 @@ const PortfolioMain = () => {
     { title: "Home", to: "/", component: <PortfolioHome /> },
     { title: "About", to: "/about", component: <About /> },
     { title: "Experience", to: "/experience", component: <UserExperience /> },
-    {
-      title: "Elevator Pitch",
-      to: "/elevator-pitch",
-      component: <ElevatorPitch />,
-    },
+    // {
+    //   title: "Elevator Pitch",
+    //   to: "/elevator-pitch",
+    //   component: <ElevatorPitch />,
+    // },
     { title: "Projects", to: "/projects", component: <Projects /> },
     { title: "Contact", to: "/contact", component: <Contacts /> },
   ];

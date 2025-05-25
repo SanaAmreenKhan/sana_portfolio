@@ -7,7 +7,7 @@ import {
   Stack,
   Snackbar,
   IconButton,
-  CloseIcon,
+  Close,
 } from "../../lib";
 import { useState } from "react";
 import { GradientBox } from "../../components/utils/MuiGradients";
@@ -95,7 +95,7 @@ const PortfolioHome = () => {
         message={`Copied: ${copiedText}`}
         action={
           <IconButton size="small" color="inherit" onClick={handleClose}>
-            <CloseIcon fontSize="small" />
+            <Close fontSize="small" />
           </IconButton>
         }
         sx={{
