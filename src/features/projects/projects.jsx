@@ -4,6 +4,23 @@ import ProjectCard from "./ProjectCard";
 
 const projects = [
   {
+    title: "Codify Demo",
+    description:
+      "An interactive web platform showcasing Codify’s IT service capabilities, featuring real-time consultation tools, custom solution previews, and chatbot support for client engagement.",
+    technologies: [
+      "React.js",
+      "TypeScript",
+      "Node.js",
+      "express.js",
+      "MongoDb",
+    ],
+    impact:
+      "Enhanced client onboarding by 40%, reduced manual inquiries by 30%, and streamlined service discovery with a 25% increase in demo engagement.",
+    image: "/codify-app.png",
+    clickable: true,
+    link: "https://personal-codeify.netlify.app/",
+  },
+  {
     title: "Emulation Lab",
     description:
       "Web-based simulation platform for engineering workflows with chatbot integration",

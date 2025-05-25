@@ -10,10 +10,17 @@ import {
 
 const ProjectCard = ({ project }) => (
   <Card
+    component={project.clickable ? "a" : "div"}
+    href={project.clickable ? project.link : undefined}
+    target={project.clickable ? "_blank" : undefined}
+    rel={project.clickable ? "noopener noreferrer" : undefined}
     sx={{
       height: "100%",
       display: "flex",
       flexDirection: "column",
+      cursor: project.clickable ? "pointer" : "default",
+      textDecoration: "none",
+      color: "inherit",
     }}
   >
     <CardMedia
