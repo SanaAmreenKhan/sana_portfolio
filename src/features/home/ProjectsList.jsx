@@ -3,6 +3,15 @@ import { personalDetails } from "../../components/utils/commonNamed";
 
 const featuredProjects = [
   {
+    title: "Velvyna",
+    description:
+      "A modern e-commerce platform built for showcasing and selling apparel. Features include dynamic product filtering, secure checkout, user authentication, and responsive design to enhance shopping experience.",
+    techStack: "MongoDB, Express.js, React.js, Node.js (MERN Stack)",
+    image: "/velvyna-app.png",
+    clickable: true,
+    link: "https://velvynacom.vercel.app/",
+  },
+  {
     title: "Codify Demo",
     description:
       "An interactive web platform showcasing Codify’s IT service capabilities, featuring real-time consultation tools, custom solution previews, and chatbot support for client engagement.",

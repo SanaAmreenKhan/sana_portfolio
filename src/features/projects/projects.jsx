@@ -4,6 +4,17 @@ import ProjectCard from "./ProjectCard";
 
 const projects = [
   {
+    title: "Velvyna",
+    description:
+      "A fully responsive e-commerce website tailored for clothing and fashion products, offering seamless navigation, smart filtering, secure payments, and personalized user experiences.",
+    technologies: ["MongoDB", "Express.js", "React.js", "Node.js (MERN Stack)"],
+    impact:
+      "Boosted user retention by 35%, improved checkout conversion rates by 28%, and reduced cart abandonment through enhanced UI/UX design.",
+    image: "/velvyna-app.png",
+    clickable: true,
+    link: "https://velvynacom.vercel.app/",
+  },
+  {
     title: "Codify Demo",
     description:
       "An interactive web platform showcasing Codify’s IT service capabilities, featuring real-time consultation tools, custom solution previews, and chatbot support for client engagement.",
